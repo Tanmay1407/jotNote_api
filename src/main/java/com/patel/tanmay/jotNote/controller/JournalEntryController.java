@@ -42,9 +42,9 @@ public class JournalEntryController {
         return journalEntryService.fetchNoteById(noteId);
     }
 
-    @DeleteMapping("id/{noteId}")
-    public String deleteNoteById(@PathVariable ObjectId noteId){
-        journalEntryService.deleteById(noteId);
+    @DeleteMapping("id/{username}/{noteId}")
+    public String deleteNoteById(@PathVariable ObjectId noteId, @PathVariable String username){
+        journalEntryService.deleteById(noteId,username);
         return "Note Deleted";
     }
 
